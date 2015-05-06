@@ -1,0 +1,24 @@
+{
+  "name": "LESS Bootstrap boilerpoint",
+  "version": "0.0.1",
+  "description": "Simple HTML boilerplate using grunt that includes uncompiled (LESS) bootstrap.",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "Erfan Norozi (dev@atrotors.com)"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "fontawesome": "~4.3.0",
+    "modernizr": "~2.8.3"
+  }
+}

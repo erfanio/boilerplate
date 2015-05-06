@@ -1,0 +1,30 @@
+{
+  "name": "LESS-Bootstrap-boilerpoint",
+  "version": "0.0.1",
+  "author": "Erfan Norozi <dev@atrotors.com>",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.10.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-autoprefixer": "~3.0.0",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-concat": "~0.5.1",
+    "grunt-contrib-less": "~1.0.1",
+    "grunt-contrib-uglify": "~0.9.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "load-grunt-tasks": "~3.1.0"
+  },
+  "files": [
+    "assets/js/*.js",
+    "assets/less/*.less",
+    "assets/css/*.css",
+    "index.html"
+  ]
+}
