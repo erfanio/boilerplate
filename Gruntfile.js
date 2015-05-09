@@ -4,7 +4,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     
     clean: {
-      dist: ['css/*', 'js/*']
+      dist: ['css/main.min.css', 'css/main.min.css.map', 'js/main.min.js']
     },
     
     concat: {
@@ -15,14 +15,14 @@ module.exports = function (grunt) {
           'assets/js/*.js',
           'assets/js/**/*.js'
         ],
-        dest: 'js/main.js'
+        dest: 'js/main.min.js'
       }
     },
     
     uglify: {
       dist: {
         files: {
-          'js/main.min.js': 'js/main.js'
+          'js/main.min.js': 'js/main.min.js'
         }
       }
     },
@@ -30,55 +30,30 @@ module.exports = function (grunt) {
     less: {
       dev: {
         files: {
-          'css/main.css': [
-            'assets/less/import.less',
-            'assets/css/*.css'
+          'css/main.min.css': [
+            'assets/less/import.less'
           ]
         },
         options: {
           compress: false,
           sourceMap: true,
-          sourceMapFilename: 'css/main.css.map',
-          sourceMapRootpath: '/'
+          sourceMapRootpath: '/',
+          sourceMapURL: 'main.min.css.map'
         }
       },
       build: {
         files: {
           'css/main.min.css': [
-            'assets/less/import.less',
-            'assets/css/*.css'
+            'assets/less/import.less'
           ]
         },
         options: {
           compress: true,
-          soureMap: false
+          soureMap: false,
+          plugins: [
+            new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]})
+          ]
         }
-      }
-    },
-    
-    autoprefixer: {
-      options: {
-        browsers: [
-          "Android 2.3",
-          "Android >= 4",
-          "Chrome >= 20",
-          "Firefox >= 24",
-          "Explorer >= 8",
-          "iOS >= 6",
-          "Opera >= 12",
-          "Safari >= 6"
-        ]
-      },
-      dev: {
-        options: {
-          map: {
-            prev: 'css/'
-          }
-        },
-        src: 'css/main.css'
-      },
-      build: {
-        src: 'css/main.min.css'
       }
     },
     
@@ -90,7 +65,7 @@ module.exports = function (grunt) {
           'assets/css/*.css',
           'assets/css/**/*.css'
         ],
-        tasks: ['less:dev', 'autoprefixer:dev']
+        tasks: ['less:dev']
       },
       js: {
         files: [
@@ -105,8 +80,8 @@ module.exports = function (grunt) {
   
   require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
   
-  grunt.registerTask('dev', ['clean', 'less:dev', 'autoprefixer:dev', 'concat'])
-  grunt.registerTask('build', ['clean', 'less:build', 'autoprefixer:build', 'concat', 'uglify'])
+  grunt.registerTask('dev', ['clean', 'less:dev', 'concat'])
+  grunt.registerTask('build', ['clean', 'less:build', 'concat', 'uglify'])
   grunt.registerTask('default', ['dev'])
   
 };
