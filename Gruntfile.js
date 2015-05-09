@@ -61,9 +61,7 @@ module.exports = function (grunt) {
       less: {
         files: [
           'assets/less/*.less',
-          'assets/less/**/*.less',
-          'assets/css/*.css',
-          'assets/css/**/*.css'
+          'assets/less/**/*.less'
         ],
         tasks: ['less:dev']
       },
