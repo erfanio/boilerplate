@@ -9,7 +9,7 @@ Clone the git repo - `git clone https://github.com/atrotors/boilerplate.git` and
 
 This boilerplate uses [Grunt](gruntjs.com) and [Bower](bower.io). To run Grunt and Bower you need to install [node.js](nodejs.org) and [npm](www.npmjs.com) from their websites.
 
-1. First you need to install Grunt and Bower with `npm install -g grunt bower`.
+1. First you need to install Grunt and Bower with `npm install -g grunt-cli bower`.
 2. Go to the website directory and run `npm install`.
 3. Run `bower install`.
 
