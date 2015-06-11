@@ -1,24 +1,34 @@
 module.exports = function (grunt) {
   'use strict';
-  
+
   grunt.initConfig({
-    
+
     clean: {
       dist: ['css/main.min.css', 'css/main.min.css.map', 'js/main.min.js']
     },
-    
+
     concat: {
       dist: {
         src: [
           'bower_components/jquery/dist/jquery.min.js',
-          'bower_components/bootstrap/js/*.js',
+          'bower_components/bootstrap/js/transition.js',
+          'bower_components/bootstrap/js/alert.js',
+          'bower_components/bootstrap/js/button.js',
+          'bower_components/bootstrap/js/carousel.js',
+          'bower_components/bootstrap/js/collapse.js',
+          'bower_components/bootstrap/js/dropdown.js',
+          'bower_components/bootstrap/js/modal.js',
+          'bower_components/bootstrap/js/tooltip.js',
+          'bower_components/bootstrap/js/popover.js',
+          'bower_components/bootstrap/js/scrollspy.js',
+          'bower_components/bootstrap/js/tab.js',
           'assets/js/*.js',
           'assets/js/**/*.js'
         ],
         dest: 'js/main.min.js'
       }
     },
-    
+
     uglify: {
       dist: {
         files: {
@@ -26,7 +36,7 @@ module.exports = function (grunt) {
         }
       }
     },
-    
+
     less: {
       dev: {
         files: {
@@ -56,7 +66,7 @@ module.exports = function (grunt) {
         }
       }
     },
-    
+
     watch: {
       less: {
         files: [
@@ -74,12 +84,12 @@ module.exports = function (grunt) {
       }
     }
   });
-  
-  
+
+
   require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
-  
+
   grunt.registerTask('dev', ['clean', 'less:dev', 'concat'])
   grunt.registerTask('build', ['clean', 'less:build', 'concat', 'uglify'])
   grunt.registerTask('default', ['dev'])
-  
+
 };
